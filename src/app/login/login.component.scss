@@ -1,0 +1,11 @@
+ion-content{
+    --background: #fff url('http://xiencias.com/capital/www/img/banner.png') no-repeat center center / cover;
+
+    font-family:'Montserrat';
+
+
+
+    ion-button{
+    	--background-color: var(--ion-color-primary-tint);
+    }
+}

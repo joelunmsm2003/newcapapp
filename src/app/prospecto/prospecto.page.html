@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color='dark'>
+
+
+
+  	<ion-buttons slot='start'>
+  		<ion-menu-button></ion-menu-button>
+  	</ion-buttons>
+
+    <ion-title>Prospecto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            
+          </div>
+          <div >
+
+
+            <ion-item>
+              <ion-label position="stacked">Primer Nombre</ion-label>
+              <ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-label  position="stacked">Segundo Nombre</ion-label>
+              <ion-input name="email" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+            	<ion-label position="stacked">Apellido Paterno</ion-label>
+              <ion-input name="password" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+            	<ion-label position="stacked">Apellido Maternos</ion-label>
+              <ion-input name="confirm" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+			    <ion-label position="stacked">Tipo Documento</ion-label>
+			    <ion-select>
+			      <ion-select-option  *ngFor="let item of tipodocumento" >{{item.name}}</ion-select-option >
+			    </ion-select>
+			  </ion-item>
+
+            <ion-item>
+            	<ion-label position="stacked">Nro de Documento</ion-label>
+              <ion-input name="confirm" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+			<ion-label position="stacked">Fecha Nacimiento</ion-label>
+			<ion-datetime display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY"></ion-datetime>
+			</ion-item>
+
+             <ion-item>
+            	<ion-label position="stacked">Telefono 1</ion-label>
+              <ion-input name="confirm" type="text" placeholder="" ngModel required></ion-input>
+            </ion-item>
+
+            <ion-item>
+            	<ion-label position="stacked">Telefono 2</ion-label>
+              <ion-input name="confirm" type="text" placeholder="" ngModel ></ion-input>
+            </ion-item>
+
+            <ion-item>
+            	<ion-label position="stacked">Correo Personal</ion-label>
+              <ion-input name="confirm" type="email" placeholder="" ngModel ></ion-input>
+            </ion-item>
+
+
+
+
+            <ion-item>
+			    <ion-label position="stacked">Estado Civil</ion-label>
+			    <ion-select>
+			      <ion-select-option  *ngFor="let item of civil" >{{item.name}}</ion-select-option >
+			    </ion-select>
+			  </ion-item>
+
+         	 <ion-item>
+			    <ion-label position="stacked">Pais</ion-label>
+			    <ion-select>
+			      <ion-select-option  *ngFor="let item of pais" >{{item.name}}</ion-select-option >
+			    </ion-select>
+			  </ion-item>
+
+            <ion-item>
+            	<ion-label position="stacked">Direccion</ion-label>
+              <ion-input name="confirm" type="text" placeholder="" ngModel ></ion-input>
+            </ion-item>
+
+
+
+
+
+          </div>
+
+         
+          <div >
+            <ion-button   type="submit" color='dark' [disabled]="form.invalid" expand="block">Siguiente</ion-button>
+          </div>
+
+    
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+

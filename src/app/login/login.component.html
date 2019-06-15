@@ -1,0 +1,25 @@
+<ion-content padding >
+
+
+
+
+
+<div style='height:80px;'></div>  
+<img src="http://xiencias.com/capital/www/img/logocapital_1.png">
+
+
+<div style='height:80px;'></div>  
+
+<ion-item>
+  <ion-label position="floating" >Usuario</ion-label>
+  <ion-input ng-model='user.usuario'></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating" >Password</ion-label>
+  <ion-input  ng-model='user.password' type='password'></ion-input>
+</ion-item>
+
+<div style='height:40px;'></div> 
+<ion-button color="dark" expand="block" (click)='myDismiss()'>Ingresar</ion-button>
+</ion-content>
