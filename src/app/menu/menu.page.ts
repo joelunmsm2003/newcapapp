@@ -44,10 +44,7 @@ pages=[
    constructor(private router:Router,private menu: MenuController) {
 
 
-  	this.router.events.subscribe((event:RouterEvents)=>{
-
-  		this.selectedPath=event.url
-  	})
+  	
 
 
    }

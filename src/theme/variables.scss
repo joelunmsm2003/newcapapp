@@ -75,10 +75,31 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  font-family: "Montserrat", "Times New Roman", serif !important;
+  
 
      ion-button{
 
-      --border-radius: 50px;
+      --border-radius: 5px;
+
+      font-family: "Work Sans", "Times New Roman", serif !important;
       } 
+
+     ion-label,.item{
+
+      font-family: "Work Sans", serif;
+      font-weight: 300;
+    }
+
+
+    ion-content,ion-item,ion-header,ion-title,h1,h2,h3,h4,h5,h6,.item-inner{
+
+      font-family: "Work Sans", serif;
+      font-weight: 200;
+    }
+
+   
+
+
+
+
 }

@@ -7,10 +7,67 @@
   		<ion-menu-button></ion-menu-button>
   	</ion-buttons>
 
-    <ion-title>Propuesta</ion-title>
+    <ion-title>{{tipocita?tipocita:'Propuesta'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+
+
+
+<ion-searchbar animated placeholder="Buscar Cliente" (ionInput)="getItems($event)"></ion-searchbar>
+
+
+
+<ion-item *ngIf='clientes'>{{clientes.length}} Registros</ion-item>
+<ion-item *ngFor="let item of clientes " (click)='agregapropuesta(item)' >
+    
+
+
+   {{item.Cliente}} {{item.Nro}}
+    
+    </ion-item>
+
+
+
+    <ion-item *ngIf='tipocita=="Cierre"'>
+
+			<ion-item>
+			<ion-label position="stacked">Modalidad</ion-label>
+			<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+			</ion-item>
+
+			<ion-item>
+			<ion-label position="stacked">Prima Target</ion-label>
+			<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+			</ion-item>
+
+			<ion-item>
+			<ion-label position="stacked">Prima Anual</ion-label>
+			<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+			</ion-item>
+
+    	
+
+    </ion-item>
+
+
+
+     
+
 
 </ion-content>
+
+
+<ion-footer>
+
+
+
+
+<div class="grid-container">
+  <div class="grid-item" (click)='tipo=1101;traetipo(1101)' [ngClass]="{'green': tipo===1101}">Prospectos</div>
+  <div class="grid-item" (click)='tipo=1102;traetipo(1102)' [ngClass]="{'green': tipo===1102}">Clientes</div>
+
+</div>
+
+</ion-footer>

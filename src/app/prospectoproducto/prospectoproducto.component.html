@@ -1,44 +1,134 @@
 <ion-content>
-  <form  #form="ngForm" (ngSubmit)="register(form)">
+  <ion-icon ios="ios-close" md="md-close" (click)='myDismiss()' style='	font-size: 20px; 
+	padding: 20px;'></ion-icon>
+	
+
+
+	 <ion-item><h3 >Agrega {{tipocita}}</h3></ion-item>
+	 	<ion-item><h6> Cliente {{cliente.Cliente}}</h6></ion-item>
+
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          
          
-         	<h3>Agrege un Producto</h3>
 
-			 <ion-item>
-			    <ion-label position="stacked">Ramo</ion-label>
-			    <ion-select>
-			      <ion-select-option  *ngFor="let item of ramo" >{{item.name}}</ion-select-option >
+
+     
+
+            <ion-item>
+			    <ion-label position="stacked">Ramos</ion-label>
+			    <ion-select [(ngModel)]="ramo" name='ramo' (ionChange)="traetipos($event)">
+			      <ion-select-option  *ngFor="let item of ramos|async" [value]="item.Codigo">{{item.Descripcion}}</ion-select-option >
 			    </ion-select>
 			  </ion-item>
 
-			  <ion-item>
+   
+
+
+            <ion-item *ngIf='ramo'>
 			    <ion-label position="stacked">Tipo</ion-label>
-			    <ion-select>
-			      <ion-select-option  *ngFor="let item of tipo" >{{item.name}}</ion-select-option >
+			    <ion-select  [(ngModel)]="tipo" name='tipo' (ionChange)="traeproductos($event)">
+			      <ion-select-option  *ngFor="let item of tipos |async" [value]="item.Codigo">{{item.Descripcion}}</ion-select-option >
 			    </ion-select>
 			  </ion-item>
 
-			   <ion-item>
+
+
+			    <ion-item *ngIf='tipo'>
 			    <ion-label position="stacked">Producto</ion-label>
-			    <ion-select>
-			      <ion-select-option  *ngFor="let item of tipo" >{{item.name}}</ion-select-option >
+			    <ion-select [(ngModel)]="producto" name='producto' (ionChange)="escogeproducto($event)" >
+			      <ion-select-option  *ngFor="let item of productos |async" >{{item.Descripcion}}</ion-select-option >
 			    </ion-select>
+			  </ion-item>
+
+				<ion-item><h3  *ngIf='listaproductos.length>0'>Productos</h3></ion-item>
+
+			  <ion-item *ngFor="let item of listaproductos">
+
+			  	{{item.observacion}} Obs. {{item.producto}} 
+
+				<ion-icon name="trash" slot="end"></ion-icon>
+				
+
 			  </ion-item>
 
 
 
-			  <ion-button expanded='block'>Siguiente</ion-button>
+	<div *ngIf='tipocita=="Seguimiento"'>
+
+    	<ion-item>
+		<ion-label position="stacked">Observacion</ion-label>
+		<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+		</ion-item>
+
+
+    </div>
+
+
+  <!--  <div *ngIf='tipocita=="Entrega"'>
+
+		  <ion-item>
+			<ion-label position="stacked">Fecha Efectiva Poliza</ion-label>
+			<ion-datetime display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY"></ion-datetime>
+			</ion-item>
+
+
+		<ion-item>
+		<ion-label position="stacked">Numero Poliza</ion-label>
+		<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+		</ion-item>
+
+
+    </div>
+
+
+    <div *ngIf='tipocita=="Post Venta"'>
+
+    	<ion-item>
+		<ion-label position="stacked">Observacion</ion-label>
+		<ion-input  name="name" type="text" placeholder="" ngModel required></ion-input>
+		</ion-item>
+
+
+    </div>-->
 
 
 
-            	 </ion-col>
+
+			  <!--
+
+
+				<ion-item *ngIf='producto'>
+				<ion-label position="stacked">Fecha</ion-label>
+				<ion-datetime display-format="MMM DD, YYYY"></ion-datetime>
+				</ion-item>
+
+		
+				<ion-item *ngIf='producto'>
+				<ion-label position="stacked">Observacion</ion-label>
+				<ion-input></ion-input>
+				</ion-item>
+
+	         -->
+
+
+
+
+
+         
+  
+           
+
+    
+        </ion-col>
       </ion-row>
     </ion-grid>
-
-
-
-  </form>
+ 
 </ion-content>
+
+
+<ion-footer>
+
+ <ion-button   type="submit" color='dark'  expand="block" (click)='ultimopaso("222")'>Siguiente</ion-button>
+      
+</ion-footer>

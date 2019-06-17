@@ -11,6 +11,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+<div *ngFor="let p of opciones">
+<ion-button fill="outline"  color='dark' ion-button (click)='ira(p.menu)'>{{p.menu}}</ion-button>
+</div>
+
 
 </ion-content>

@@ -10,14 +10,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
+import { ProspectoproductoComponent } from './prospectoproducto/prospectoproducto.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent,LoginComponent],
-  entryComponents: [LoginComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent,LoginComponent,ProspectoproductoComponent],
+  entryComponents: [LoginComponent,ProspectoproductoComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
+    AppService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
