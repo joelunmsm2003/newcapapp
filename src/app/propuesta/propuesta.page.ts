@@ -26,6 +26,13 @@ export class PropuestaPage implements OnInit {
 
 
 
+  }
+
+  ngOnInit() {
+
+
+  	this.tipocita = 'Propuesta'
+
 
   	 this.route.queryParams.subscribe(params => {
       	
@@ -35,10 +42,6 @@ export class PropuestaPage implements OnInit {
 
 
     });
-
-  }
-
-  ngOnInit() {
 
 
   	console.log('type..',this.type)

@@ -71,7 +71,7 @@ tipocita:any;
 
     if(this.tipocita=='Seguimiento'){this.seguimiento(data.target.value)}
 
-
+      if(this.tipocita==undefined){this.propuesta(data.target.value)}
 
 
     }
@@ -82,6 +82,44 @@ tipocita:any;
       async postventa(data) {
     const alert = await this.alertController.create({
       header: 'Post Venta',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Ingrese observacion'
+        }
+        
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (result) => {
+
+
+            console.log(result)
+
+            let _data={'producto':result.name1,'observacion':data}
+
+            this.listaproductos.push(_data)
+
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+      async propuesta(data) {
+    const alert = await this.alertController.create({
+      header: 'Propuesta',
       inputs: [
         {
           name: 'name1',
